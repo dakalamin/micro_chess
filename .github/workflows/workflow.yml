@@ -1,0 +1,28 @@
+name: Demo Action
+
+on: [push]
+
+env:
+  REQUIREMENTS_PATH: scripts/requirements.txt
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.platformio/.cache
+          key: ${{ hashFiles(env.REQUIREMENTS_PATH) }}-python-requirements
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Python packages
+        run: pip install -r ${{ env.REQUIREMENTS_PATH }}
+
+      - name: Output PlatformIO version
+        run: pio --version
