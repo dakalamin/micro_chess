@@ -22,7 +22,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install Python packages
-        run: pip install -r ${{ env.REQUIREMENTS_PATH }}
+        run: pip install --upgrade -r ${{ env.REQUIREMENTS_PATH }}
 
       - name: Output PlatformIO version
         run: pio --version
