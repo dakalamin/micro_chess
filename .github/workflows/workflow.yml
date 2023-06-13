@@ -16,7 +16,8 @@ jobs:
           path: |
             ~/.cache/pip
             ~/.platformio/.cache
-          key: ${{ hashFiles(env.REQUIREMENTS_PATH) }}-python-requirements
+          key: python-requirements-${{ hashFiles(env.REQUIREMENTS_PATH) }}
+          restore-keys: python-requirements-
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
