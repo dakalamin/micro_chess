@@ -1,0 +1,7 @@
+{
+    "name" : "micro_chess_engine",
+    "version" : "0.1.0",
+
+    "frameworks" : "*",
+    "platforms"  : "*"
+}
