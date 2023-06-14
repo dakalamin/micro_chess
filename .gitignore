@@ -1,4 +1,6 @@
+# vscode stuff except settings.json
 /.vscode/*
 !/.vscode/settings.json
 
+# PlatformIO libdeps and builds
 /.pio
