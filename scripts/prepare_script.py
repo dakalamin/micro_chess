@@ -42,8 +42,10 @@ def ensure_requirements() -> None:
 def _all_required_packages_found() -> bool:
     with open(REQUIREMENTS_PATH, 'r') as requirements_file:
         requirements = pkg_resources.parse_requirements(requirements_file)
+        
         # map converts to list so every unsatisfied requirement is printed out
-        return all(list(map(_requirement_satisfied, requirements)))
+        requirements_satisfied = list(map(_requirement_satisfied, requirements))
+        return all(requirements_satisfied)
 
 def _requirement_satisfied(req: pkg_resources.Requirement) -> bool:
     try:
